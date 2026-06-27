@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import EdCilLogo from '../assets/edcil.jpeg'
+import BilingualText from '../components/BilingualText.jsx'
+import LanguageToggle from '../components/LanguageToggle.jsx'
 import '../styles/futuristic.css'
 
 /* ── helpers ─────────────────────────────────────────────────────────────── */
@@ -54,7 +56,7 @@ function StatCard({ value, suffix = '', label, color, delay = 0 }) {
         {count}{suffix}
       </div>
       <div style={{ marginTop: '0.5rem', color: 'rgba(255,255,255,0.55)', fontSize: '0.82rem', fontWeight: 500, letterSpacing: '0.02em' }}>
-        {label}
+        <BilingualText text={label} />
       </div>
     </motion.div>
   )
@@ -99,10 +101,10 @@ function FeatureCard({ icon, title, desc, color, delay = 0 }) {
         {icon}
       </div>
       <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.05rem', fontWeight: 700, color: 'rgba(255,255,255,0.95)', letterSpacing: '-0.01em' }}>
-        {title}
+        <BilingualText text={title} />
       </h3>
       <p style={{ margin: 0, color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', lineHeight: 1.65 }}>
-        {desc}
+        <BilingualText text={desc} />
       </p>
       {/* Corner accent */}
       <div style={{
@@ -147,10 +149,10 @@ function StepCard({ num, title, desc, color, delay = 0 }) {
       </div>
       <div>
         <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)', marginBottom: '0.3rem' }}>
-          {title}
+          <BilingualText text={title} />
         </div>
         <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.85rem', lineHeight: 1.6 }}>
-          {desc}
+          <BilingualText text={desc} />
         </div>
       </div>
     </motion.div>
@@ -230,18 +232,21 @@ export default function HomePage({ onStart }) {
           />
           <div>
             <div className="ft-nav-logo" style={{ lineHeight: 1 }}>Manzil</div>
-            <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>by EdCIL</div>
+            <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase' }}><BilingualText text="by EdCIL" /></div>
           </div>
         </div>
 
         {/* Right: badge */}
-        <div style={{
-          fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase',
-          padding: '0.35rem 0.85rem', borderRadius: 999,
-          background: 'rgba(0,212,255,0.1)', border: '1px solid rgba(0,212,255,0.25)',
-          color: '#00d4ff',
-        }}>
-          🇮🇳 Government Initiative
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <LanguageToggle />
+          <div style={{
+            fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase',
+            padding: '0.35rem 0.85rem', borderRadius: 999,
+            background: 'rgba(0,212,255,0.1)', border: '1px solid rgba(0,212,255,0.25)',
+            color: '#00d4ff',
+          }}>
+            🇮🇳 <BilingualText text="Government Initiative" />
+          </div>
         </div>
       </nav>
 
@@ -288,7 +293,7 @@ export default function HomePage({ onStart }) {
           }}
         >
           <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00ff88', boxShadow: '0 0 6px #00ff88', display: 'inline-block' }} />
-          Powered by EdCIL · Ministry of Education, Govt. of India
+          <BilingualText text="Powered by EdCIL · Ministry of Education, Govt. of India" />
         </motion.div>
 
         {/* Headline */}
@@ -304,15 +309,15 @@ export default function HomePage({ onStart }) {
             position: 'relative', zIndex: 1,
           }}
         >
-          Career Guidance{' '}
+          <BilingualText text="Career Guidance" />{' '}
           <span style={{
             background: 'linear-gradient(135deg, #00d4ff, #8b5cf6)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
           }}>
-            Built for India
+            <BilingualText text="Built for India" />
           </span>
-          {' '}— Free for Every Student
+          {' '}<BilingualText text="— Free for Every Student" />
         </motion.h1>
 
         {/* Subtitle */}
@@ -326,7 +331,7 @@ export default function HomePage({ onStart }) {
             position: 'relative', zIndex: 1,
           }}
         >
-          AI-powered career counselling, psychometric profiling, and personalised roadmaps for Class 9–12 students across India. No fees. No bias. Just clear direction.
+          <BilingualText text="AI-powered career counselling, psychometric profiling, and personalised roadmaps for Class 9–12 students across India. No fees. No bias. Just clear direction." />
         </motion.p>
 
         {/* CTA */}
@@ -341,14 +346,14 @@ export default function HomePage({ onStart }) {
             style={{ fontSize: '1rem', padding: '0.9rem 2rem', borderRadius: 999 }}
             onClick={onStart}
           >
-            Start Counselling →
+            <BilingualText text="Start Counselling →" />
           </button>
           <button
             className="ft-button-secondary"
             style={{ fontSize: '1rem', padding: '0.85rem 2rem', borderRadius: 999 }}
             onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            How It Works ↓
+            <BilingualText text="How It Works ↓" />
           </button>
         </motion.div>
 
@@ -378,12 +383,12 @@ export default function HomePage({ onStart }) {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           {/* Section header */}
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span className="ft-section-label">Platform Features</span>
+            <span className="ft-section-label"><BilingualText text="Platform Features" /></span>
             <h2 style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', fontWeight: 800, letterSpacing: '-0.03em', color: 'rgba(255,255,255,0.95)', margin: '0 0 0.75rem' }}>
-              Everything a student needs
+              <BilingualText text="Everything a student needs" />
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '1rem', maxWidth: 520, margin: '0 auto', lineHeight: 1.65 }}>
-              From personality profiling to AI counselling — all tools in one platform, designed specifically for the Indian education system.
+              <BilingualText text="From personality profiling to AI counselling — all tools in one platform, designed specifically for the Indian education system." />
             </p>
           </div>
 
@@ -407,12 +412,12 @@ export default function HomePage({ onStart }) {
 
         <div style={{ maxWidth: 760, margin: '0 auto', position: 'relative' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <span className="ft-section-label">How It Works</span>
+            <span className="ft-section-label"><BilingualText text="How It Works" /></span>
             <h2 style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', fontWeight: 800, letterSpacing: '-0.03em', color: 'rgba(255,255,255,0.95)', margin: '0 0 0.75rem' }}>
-              From profile to roadmap
+              <BilingualText text="From profile to roadmap" />
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '1rem', lineHeight: 1.65, margin: 0 }}>
-              Four simple steps to a clear career direction.
+              <BilingualText text="Four simple steps to a clear career direction." />
             </p>
           </div>
 
@@ -449,13 +454,13 @@ export default function HomePage({ onStart }) {
           />
           <div style={{ flex: 1, minWidth: 240 }}>
             <div style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00d4ff', marginBottom: '0.4rem' }}>
-              About EdCIL
+              <BilingualText text="About EdCIL" />
             </div>
             <h3 style={{ margin: '0 0 0.6rem', fontSize: '1.2rem', fontWeight: 700, color: 'rgba(255,255,255,0.95)' }}>
-              A Government of India Enterprise
+              <BilingualText text="A Government of India Enterprise" />
             </h3>
             <p style={{ margin: 0, color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', lineHeight: 1.7 }}>
-              EdCIL (India) Limited is a Mini Ratna enterprise under the Ministry of Education, Government of India. Manzil is EdCIL's initiative to democratise career guidance for every student across India — free, unbiased, and built around the Indian education ecosystem.
+              <BilingualText text="EdCIL (India) Limited is a Mini Ratna enterprise under the Ministry of Education, Government of India. Manzil is EdCIL's initiative to democratise career guidance for every student across India — free, unbiased, and built around the Indian education ecosystem." />
             </p>
           </div>
         </motion.div>
@@ -484,20 +489,20 @@ export default function HomePage({ onStart }) {
           <div style={{ position: 'absolute', top: '-40%', right: '-10%', width: 300, height: 300, borderRadius: '50%', background: 'radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)', filter: 'blur(40px)', pointerEvents: 'none' }} />
           <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🎯</div>
           <h2 style={{ margin: '0 0 0.75rem', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, letterSpacing: '-0.03em', color: 'rgba(255,255,255,0.95)' }}>
-            Ready to find your path?
+            <BilingualText text="Ready to find your path?" />
           </h2>
           <p style={{ margin: '0 auto 2rem', color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.65, maxWidth: 480 }}>
-            Complete your profile in under 5 minutes and get personalised career recommendations built around who you actually are.
+            <BilingualText text="Complete your profile in under 5 minutes and get personalised career recommendations built around who you actually are." />
           </p>
           <button
             className="ft-button-primary"
             style={{ fontSize: '1.05rem', padding: '1rem 2.5rem', borderRadius: 999, boxShadow: '0 0 30px rgba(0,212,255,0.25)' }}
             onClick={onStart}
           >
-            Start Counselling →
+            <BilingualText text="Start Counselling →" />
           </button>
           <p style={{ marginTop: '1rem', color: 'rgba(255,255,255,0.25)', fontSize: '0.8rem' }}>
-            Free · No login required to explore
+            <BilingualText text="Free · No login required to explore" />
           </p>
         </motion.div>
       </section>
@@ -513,10 +518,10 @@ export default function HomePage({ onStart }) {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
           <img src={EdCilLogo} alt="EdCIL" style={{ height: 20, width: 20, objectFit: 'cover', borderRadius: 4, opacity: 0.6 }} />
-          <span>Manzil by EdCIL (India) Limited</span>
+          <span><BilingualText text="Manzil by EdCIL (India) Limited" /></span>
         </div>
         <p style={{ margin: 0 }}>
-          © {new Date().getFullYear()} EdCIL (India) Limited · Ministry of Education, Government of India · All rights reserved
+          © {new Date().getFullYear()} <BilingualText text="EdCIL (India) Limited · Ministry of Education, Government of India · All rights reserved" />
         </p>
       </footer>
     </div>
