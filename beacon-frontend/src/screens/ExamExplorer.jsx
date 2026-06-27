@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/futuristic.css';
+import LanguageToggle from '../components/LanguageToggle.jsx';
 
 export default function ExamExplorer() {
   const [stream, setStream] = useState('All');
@@ -211,6 +212,7 @@ export default function ExamExplorer() {
           <h1 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 800, color: 'var(--ft-text-primary)' }}>Exam Explorer</h1>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <LanguageToggle />
           <button
             onClick={handleThemeToggle}
             style={{

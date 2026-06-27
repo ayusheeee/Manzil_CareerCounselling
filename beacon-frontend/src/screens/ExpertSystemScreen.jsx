@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GlassCard, RadialGauge } from '../components/FuturisticCharts.jsx';
 import { consultExpert, getExpertCareers } from '../api/client.js';
 import EdCilLogo from '../assets/edcil.jpeg';
+import LanguageToggle from '../components/LanguageToggle.jsx';
 import '../styles/futuristic.css';
 import './ExpertSystemScreen.css';
 
@@ -141,6 +142,7 @@ export default function ExpertSystemScreen() {
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <LanguageToggle className="no-print" />
           <button
             onClick={handleThemeToggle}
             style={{

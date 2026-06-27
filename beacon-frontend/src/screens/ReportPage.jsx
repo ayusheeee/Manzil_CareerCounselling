@@ -6,6 +6,7 @@ import {
 } from 'recharts';
 import { getCareerBannerImage } from '../utils/bannerImage';
 import { GlassCard } from '../components/FuturisticCharts';
+import LanguageToggle from '../components/LanguageToggle.jsx';
 import { Download, Briefcase, GraduationCap, Target, Users, Compass, AlertTriangle, CheckCircle2, Calendar, MapPin, BookOpen, TrendingUp, Heart, FileText, Sparkles, Brain } from "lucide-react";
 
 import { API as BEACON_API, APTITUDE_URL } from '../config';
@@ -435,6 +436,7 @@ export default function ReportPage() {
           <h1 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 800, color: 'var(--ft-text-primary)' }}>Manzil Career Report</h1>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <LanguageToggle className="no-print" />
           <button
             onClick={() => window.print()}
             className="ft-button-primary"

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/futuristic.css';
 import { getCareerCatalog } from '../api/client';
+import LanguageToggle from '../components/LanguageToggle.jsx';
 
 export default function CareerLibrary() {
   const [filter, setFilter] = useState('All');
@@ -74,6 +75,7 @@ export default function CareerLibrary() {
           <h1 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 800, color: 'var(--ft-text-primary)' }}>Career Library</h1>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <LanguageToggle />
           <button
             onClick={handleThemeToggle}
             style={{

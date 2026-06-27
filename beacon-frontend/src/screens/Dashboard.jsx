@@ -8,6 +8,7 @@ import { getSmartRecommendations, getMyProfile } from '../api/client.js'
 import EdCilLogo from '../assets/edcil.jpeg'
 import '../styles/futuristic.css'
 import { APTITUDE_URL } from '../config.js'
+import LanguageToggle from '../components/LanguageToggle.jsx'
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend, Cell,
@@ -318,6 +319,7 @@ export default function Dashboard({ userName }) {
           {profile?.riasec_scores && (
             <a onClick={() => { window.history.pushState({}, '', '/report'); window.dispatchEvent(new PopStateEvent('popstate')) }} className="ft-nav-link">My Report</a>
           )}
+          <LanguageToggle style={{ marginRight: '0.5rem' }} />
           <button
             onClick={handleThemeToggle}
             style={{
