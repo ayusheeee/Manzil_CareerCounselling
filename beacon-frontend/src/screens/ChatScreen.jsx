@@ -354,7 +354,8 @@ export default function ChatScreen() {
 
   const showSuggestions =
     currentNode?.type === "question" &&
-    currentNode.options?.length > 0;
+    currentNode.options?.length > 0 &&
+    !showQuickActions;
 
   return (
     <div className="chat-page">
